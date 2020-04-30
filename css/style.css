@@ -54,11 +54,13 @@ body {
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%); /* this sets the spot at which the position is measured. instead of where the element begins, it now starts at the center of the element, hence 50 x and 50 y */
+    text-align: center;
 }
 
 .heading-primary {
     color: #fff;
     text-transform: uppercase;
+    margin-bottom: 20px;
 
     backface-visibility: hidden; /* removes possibilty of the shake during the animation. */
 }
@@ -117,4 +119,28 @@ body {
         opacity: 1;
         transform: translateX(0);
     }
+}
+
+.btn:link, .btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.2s; /*slowing the animation of all animations on the class btn to make it more appealing. transition property has to be on initial state */
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
+}
+
+.btn-white {
+    background-color: #fff;
+    color: #777;
+    padding: 15px 40px;
+    border-radius: 50px;
 }
