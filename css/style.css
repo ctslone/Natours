@@ -44,6 +44,9 @@ body {
 
 .logo {
     height: 35px;
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
 }
 
 .text-box {
@@ -56,6 +59,8 @@ body {
 .heading-primary {
     color: #fff;
     text-transform: uppercase;
+
+    backface-visibility: hidden; /* removes possibilty of the shake during the animation. */
 }
 
 .heading-primary-main {
@@ -64,6 +69,10 @@ body {
     font-weight: 400;
     letter-spacing: 35px;
     justify-content: center;
+    
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
 }
 
 .heading-primary-sub {
@@ -72,4 +81,40 @@ body {
     font-weight: 700;
     letter-spacing: 17.4px;
     justify-content: center;
+
+    animation-name: moveInRight;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+}
+
+@keyframes moveInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+
+    80% {
+        transform: translateX(20px)
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+
+    80% {
+        transform: translateX(-20px)
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
