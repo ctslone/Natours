@@ -14,13 +14,18 @@ Dark green: #28b485
     /* border box changes property so that padding and margin are not calculated into total heigh and width of an element */
 }
 
+html {
+    /* font-size: 10px; makes it so that 1 rem is 10px */
+    font-size: 62.5% /* sets the percentage of the browser font size (16) so that if user changes the browser font size, our fonts scale accordingly. this is 10 divided by 16 */
+}
+
 body {
     font-family: "Lato", sans-serif;
     font-weight: 400;
-    font-size: 16px;
+    /* font-size: 16px; */
     line-height: 1.7;
     color: #777;
-    padding: 30px;
+    padding: 3rem;
 }
 
 .header {
@@ -38,12 +43,12 @@ body {
 
 .logo-box {
     position: absolute;
-    top: 40px;
-    left: 40px;
+    top: 4rem;
+    left: 4rem;
 }
 
 .logo {
-    height: 35px;
+    height: 3.5rem;
     animation-name: moveInLeft;
     animation-duration: 1s;
     animation-timing-function: ease-out;
@@ -60,16 +65,16 @@ body {
 .heading-primary {
     color: #fff;
     text-transform: uppercase;
-    margin-bottom: 40px;
+    margin-bottom: 4rem;
 
     backface-visibility: hidden; /* removes possibilty of the shake during the animation. */
 }
 
 .heading-primary-main {
     display: block;
-    font-size: 60px;
+    font-size: 6rem;
     font-weight: 400;
-    letter-spacing: 35px;
+    letter-spacing: 3.5rem;
     justify-content: center;
     
     animation-name: moveInLeft;
@@ -79,9 +84,9 @@ body {
 
 .heading-primary-sub {
     display: block;
-    font-size: 20px;
+    font-size: 2rem;
     font-weight: 700;
-    letter-spacing: 17.4px;
+    letter-spacing: 1.74rem;
     justify-content: center;
 
     animation-name: moveInRight;
@@ -92,11 +97,11 @@ body {
 @keyframes moveInLeft {
     0% {
         opacity: 0;
-        transform: translateX(-100px);
+        transform: translateX(-10rem);
     }
 
     80% {
-        transform: translateX(20px)
+        transform: translateX(2rem)
     }
 
     100% {
@@ -108,11 +113,11 @@ body {
 @keyframes moveInRight {
     0% {
         opacity: 0;
-        transform: translateX(100px);
+        transform: translateX(10rem);
     }
 
     80% {
-        transform: translateX(-20px)
+        transform: translateX(-2rem)
     }
 
     100% {
@@ -124,7 +129,7 @@ body {
 @keyframes moveInBottom {
     0% {
         opacity: 0;
-        transform: translateY(50px);
+        transform: translateY(5rem);
     }
 
     /* 80% {
@@ -141,25 +146,26 @@ body {
     text-transform: uppercase;
     text-decoration: none;
     display: inline-block;
-    transition: all 0.2s; /*slowing the animation of all animations on the class btn to make it more appealing. transition property has to be on initial state */
+    transition: all .2s; /*slowing the animation of all animations on the class btn to make it more appealing. transition property has to be on initial state */
     position: relative;
+    font-size: 1.6rem;
 }
 
 .btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    transform: translateY(-.3rem);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, .5);
 }
 
 .btn:active {
-    transform: translateY(-1px);
-    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
+    transform: translateY(-.1rem);
+    box-shadow: 0 1rem 1rem rgba(0, 0, 0, .3);
 }
 
 .btn-white {
     background-color: #fff;
     color: #777;
-    padding: 15px 40px;
-    border-radius: 50px;
+    padding: 1.5rem 4rem;
+    border-radius: 5rem;
 }
 
 .btn::after {
@@ -167,12 +173,12 @@ body {
     display: inline-block;
     height: 100%;
     width: 100%;
-    border-radius: 100px;
+    border-radius: 10rem;
     position: absolute;
     top: 0;
     left: 0;
     z-index: -1;
-    transition: all 0.4s;
+    transition: all .4s;
 }
 
 .btn-white::after {
@@ -185,6 +191,6 @@ body {
 }
 
 .btn-animate {
-    animation: moveInBottom 0.5s ease-out 0.75s;
+    animation: moveInBottom .5s ease-out .75s;
     animation-fill-mode: backwards; /* applys styles of 0% animation progress before animation starts */
 }
