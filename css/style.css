@@ -7,10 +7,12 @@ Dark green: #28b485
 
 */
 
-* {
+*,
+*::after,
+*::before {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: inherit; /* forcing inheretance of universla selector */
     /* border box changes property so that padding and margin are not calculated into total heigh and width of an element */
 }
 
@@ -26,6 +28,8 @@ body {
     line-height: 1.7;
     color: #777;
     padding: 3rem;
+
+    box-sizing: border-box
 }
 
 .header {
