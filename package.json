@@ -1,0 +1,23 @@
+{
+  "name": "natours",
+  "version": "1.0.0",
+  "description": "Landing page for natours app",
+  "main": "index.js",
+  "scripts": {
+    "compile:sass": "node-sass sass/main.scss css/style.css" 
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ctslone/Natours.git"
+  },
+  "author": "Charlie",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ctslone/Natours/issues"
+  },
+  "homepage": "https://github.com/ctslone/Natours#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "node-sass": "^4.14.1"
+  }
+}

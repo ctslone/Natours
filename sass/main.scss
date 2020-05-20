@@ -1,0 +1,196 @@
+
+$color-primary: #55c57a;
+$color-primary-light: #7ed56f;
+$color-primary-dark: #28b485;
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit; /* forcing inheretance of universla selector */
+    /* border box changes property so that padding and margin are not calculated into total heigh and width of an element */
+}
+
+html {
+    /* font-size: 10px; makes it so that 1 rem is 10px */
+    font-size: 62.5% /* sets the percentage of the browser font size (16) so that if user changes the browser font size, our fonts scale accordingly. this is 10 divided by 16 */
+}
+
+body {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    /* font-size: 16px; */
+    line-height: 1.7;
+    color: #777;
+    padding: 3rem;
+
+    box-sizing: border-box
+}
+
+.header {
+    position: relative;
+    height: 95vh;
+    background-image: linear-gradient(
+        to right bottom, 
+        rgba($color-primary-light, 0.8), 
+        rgba($color-primary-dark, 0.8)), 
+        url('../img/hero.jpg');
+    background-size: cover;
+    background-position: top; /* fixes top of image to view port and only crops the bottom of image. */
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+}
+
+.header__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+}
+
+.header__logo {
+    height: 3.5rem;
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+}
+
+.header__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* this sets the spot at which the position is measured. instead of where the element begins, it now starts at the center of the element, hence 50 x and 50 y */
+    text-align: center;
+}
+
+.heading-primary {
+    color: #fff;
+    text-transform: uppercase;
+    margin-bottom: 4rem;
+
+    backface-visibility: hidden; /* removes possibilty of the shake during the animation. */
+}
+
+.heading-primary--main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    justify-content: center;
+    
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+}
+
+.heading-primary--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.74rem;
+    justify-content: center;
+
+    animation-name: moveInRight;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+}
+
+@keyframes moveInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-10rem);
+    }
+
+    80% {
+        transform: translateX(2rem)
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(10rem);
+    }
+
+    80% {
+        transform: translateX(-2rem)
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(5rem);
+    }
+
+    /* 80% {
+        transform: translateY(-20px)
+    } */
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.btn:link, .btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-block;
+    transition: all .2s; /*slowing the animation of all animations on the class btn to make it more appealing. transition property has to be on initial state */
+    position: relative;
+    font-size: 1.6rem;
+}
+
+.btn:hover {
+    transform: translateY(-.3rem);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, .5);
+}
+
+.btn:active {
+    transform: translateY(-.1rem);
+    box-shadow: 0 1rem 1rem rgba(0, 0, 0, .3);
+}
+
+.btn--white {
+    background-color: #fff;
+    color: #777;
+    padding: 1.5rem 4rem;
+    border-radius: 5rem;
+}
+
+.btn::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+}
+
+.btn--white::after {
+    background-color: rgb(255, 255, 255);
+}
+
+.btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+.btn--animate {
+    animation: moveInBottom .5s ease-out .75s;
+    animation-fill-mode: backwards; /* applys styles of 0% animation progress before animation starts */
+}
